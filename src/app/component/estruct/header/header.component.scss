@@ -1,0 +1,22 @@
+.center-header{
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+
+}
+.h1{
+  font-size: 2.5em !important;
+}
+.text-center{
+  text-align: center;
+}
+header{
+  //   box-shadow: 12px 29px 81px 0px rgba(26, 25, 25, 0.75);
+  //  box-shadow: 12px 29px 81px 10px rgba(17, 17, 17, 0.75);
+
+  background-color: #0f1418;
+
+  //width:  1400px;
+  // background-image: url(https://scontent.flim12-1.fna.fbcdn.net/v/t1.0-9/131411234_113102183982897_626121686635276313_o.png?_nc_cat=108&ccb=2&_nc_sid=730e14&_nc_ohc=8GRZmxAEWvAAX-1fC9c&_nc_ht=scontent.flim12-1.fna&oh=c5e844b7e10a477bf8f7af74dd5b8641&oe=60002AE6);
+}
