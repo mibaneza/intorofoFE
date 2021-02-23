@@ -1,0 +1,40 @@
+
+.button {
+  background-color: #2a475e !important; /* Green */
+  border: none;
+  border-radius: 5%;
+  color: #63bcef;
+  text-decoration: none;
+  font-size: 16px;
+}
+.disabled {
+  // opacity: 0.6;
+  cursor: not-allowed;
+}
+.font-color-bot{
+  color: #384959;
+}
+.border-background{
+  border: 5px solid  #1B2838;
+}
+.border-radius{
+
+  border-radius:40px   !important;
+
+}
+.padding-inf{
+  padding: 0.9em 0.78em;
+}
+.padding-not{
+  padding: 0.9em 0.6em;
+}
+.padding-bug{
+  padding: 0.9em 0.5em;
+}
+.article{
+  box-shadow: 2px 2px 2px 1px rgba(17, 17, 17, 0.247);
+  background-color: #16202d;
+}
+.border-bot{
+  border-bottom:1px solid #1B2838;
+}

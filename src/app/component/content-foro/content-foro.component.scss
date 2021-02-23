@@ -1,0 +1,84 @@
+.awdawd{
+  text-align:center !important;
+}
+.paramDiv {
+  /* Control de la altura con base en el texto del div*/
+  height: auto;
+  word-wrap: break-word;
+}
+img{
+  display:block;
+  margin:auto;
+}
+.center-x{
+  display:block;
+  margin:auto;
+}
+.etiqueta{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #386482;
+  color: #c8ebff;
+  border-radius: 10%;
+  border:none ;
+  font-size: 0.7em;
+  text-align:center;
+  text-decoration:none;
+}
+.h2-title{
+  font-size: 2em;
+}
+.h7{
+  font-family: Arial, Helvetica, sans-serif;
+  color: azure;
+  font-size: 0.75em;
+}
+.icon-h7{
+
+
+  color: azure;
+  font-size: 1em;
+  text-align: right;
+}
+.button {
+  background-color: #2a475e !important; /* Green */
+  border: none;
+  border-radius: 5%;
+  color: #63bcef;
+  text-decoration: none;
+  font-size: 13px;
+}
+.icon-ma {
+  font-size: 20px;
+  text-align: center;
+  padding-top: 0.08em;
+}
+textarea{
+  color: #acb2b8;
+
+}
+
+.comment{
+  border-top: solid 1px #386482;
+}
+
+.mat-form-comment{
+  color: #acb2b8 !important;
+}
+h3{
+  font-family: "Motiva Sans", Sans-serif !important;
+  color: #ffffff !important;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #63bcef  !important;
+
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #386482 !important;
+
+}
+
+::ng-deep.mat-form-field-ripple {
+  color: #63bcef  !important;
+  background-color: #63bcef !important;
+}

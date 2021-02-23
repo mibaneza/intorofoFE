@@ -1,0 +1,87 @@
+<nav class="nav-foro mt-0 mx-0 pt-0 px-0" *ngIf="existForun">
+  <div class="container mt-0  pt-0 px-0 mb-2">
+    <ul class="  row align-items-center  my-0 py-1">
+      <li class=" "><a [routerLink]="['/forum']">foro</a></li>
+      <mat-icon class="mx-1 mt-1">keyboard_arrow_right</mat-icon>
+      <li  *ngIf="postI" class=" "><a
+        [routerLink]="['/forum',postI.linktitlecategory]">{{postI.linktitlecategory}}</a>
+      </li>
+      <mat-icon class="mx-1 mt-1">keyboard_arrow_right</mat-icon>
+      <li class=" ">{{postI.linktitle}}</li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container my-4 " *ngIf="existForun">
+
+
+  <div class="row m-0 p-0 p" *ngIf="containeruser">
+    <div class=" col-12 col-sm-12 col-md-9 col-lg-9 mb-3 px-0 mx-0">
+      <div class="background-color-container mb-1 p-3 ">
+        <a [routerLink]="['/forum',postI.linktitlecategory]" class="etiqueta p-1 my-2"
+           style="text-transform: uppercase;">{{postI.linktitlecategory}}</a><br>
+        <span class="h2-title mt-2">{{postI.title}}</span><br>
+        <span class="h7">
+                    <mat-icon class="icon-h7 px-0 mx-0"> local_offer</mat-icon> Por {{postI.updateModel.name}} -
+          {{postI.quantitycommets}} comentarios
+                </span>
+
+        <div class="col-12 mx-0 px-0 row ">
+          <button (click)="actualizarPost()" class="mx-2 button  row align-items-center p-1 pr-2">
+            <mat-icon class="mr-1 icon-ma">update</mat-icon> Actualizar
+          </button>
+          <button (click)="eliminarPost()" class="mx-2 button  row align-items-center p-1 pr-2">
+            <mat-icon class="mr-1 icon-ma ">remove_circle</mat-icon> Eliminar
+          </button>
+        </div>
+
+      </div>
+      <div class="background-color-container my-2 pt-2 px-2 px-md-2 px-lg-3 mx-0">
+        <div class=" py-1 paramDiv" [innerHtml]="postI.content | safeHtml"></div>
+      </div>
+      <!--
+   <h3 class="mb-1">Comment</h3>
+
+   <div
+       class="background-color-container m-0 p-2 comment">
+
+       <mat-form-field class="mat-form-comment col-12">
+           <textarea matInput class="col-12"  [(ngModel)]="commentI.comment" placeholder="Comentarios"
+               ></textarea>
+
+       </mat-form-field>
+       <div class="mx-2 mb-2">
+           <button type="submit" class="mx-2 button  row align-items-center p-1 pr-2">
+               <mat-icon class="mr-1 icon-ma ">send</mat-icon> Enviar
+           </button>
+       </div>
+
+   </div>
+   -->
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-3 col-lg-3 ">
+      <div style="font-size: 0.78em;" class="border-bot pb-1">{{postI.updateModel.title}} POR</div>
+      <img alt="perfil" class="image-perfil mt-4 mb-2 " style="  width:85px; height:85px;"
+           src="https://cdn.discordapp.com/avatars/{{postI.updateModel.username}}/{{postI.updateModel.avatar}}.png">
+      <div class="text-center">
+        <div style="font-size: 1.3em;" class="my-1 color-{{validateRol(roles)}}">{{containeruser.name}}</div>
+        <div style="font-size: 0.67em;">En Intocables desde {{containeruser.indate}}</div>
+
+        <div class="row pt-3 mx-0 px-0 col-12 ">
+          <div style="font-size: 0.67em;" class="col row px-0 d-flex justify-content-center">
+            <mat-icon style="font-size: 1.1em; margin-top: 1%;">storage</mat-icon>
+            <div> {{containeruser.quantitypost}} temas</div>
+          </div>
+          <div style="font-size: 0.67em;" class="col row px-0 d-flex justify-content-center">
+            <mat-icon style="font-size: 1.1em; margin-top: 2%;">chat_bubble</mat-icon>
+            <div>{{containeruser.quantitycomment}} comentarios</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<app-error *ngIf="!existForun"></app-error>-->

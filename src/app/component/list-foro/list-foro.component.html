@@ -1,0 +1,67 @@
+<nav class="nav-foro mt-0 mx-0  px-0">
+  <div class="container mt-0  pt-0 px-0 mb-2">
+    <ul class="  row align-items-center  my-0 py-1">
+      <li class=" "><a [routerLink]="['/forum']" >Foros</a></li>
+      <mat-icon class="mx-1 mt-1">keyboard_arrow_right</mat-icon>
+      <li  *ngIf="categoryI" class=" ">{{categoryI.linktitle}}</li>
+
+      <li *ngIf="loginService.getRoleVal() || loginService.getRoleValUser(categoryI.est)" class="ml-5 row align-items-center mr-0 center-button ">
+        <button (click)="savePost()" class="button  row align-items-center p-2 pr-3"  ><mat-icon class="mx-2">chat_bubble</mat-icon> Crear Tema</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container mt-4 mb-0 pb-5 px-0">
+
+  <div class=" blanco  article  border-bot" >
+    <div class="row align-items-center py-4 ">
+
+      <div *ngIf="categoryI" class="col-md-12 col-lg-12 col-12  px-0 mx-0">
+        <div class="row align-items-center  mx-0  ">
+          <img alt="perfil" class="image-perfils ml-4" style="  width:60px; height:60px;"
+               src="{{categoryI.linklogo}}">
+          <div class="ml-3 col-8 col-sm-9 col-md-9 col-lg-9">
+            <h2 class="mt-0 mb-0 py-0"><strong>{{categoryI.tilecategories}}</strong></h2>
+            <span class="mt-1 mb-0 font-color-bot">{{categoryI.description}}</span>
+          </div>
+          <mat-icon>remove_circle</mat-icon>
+          <mat-icon>update</mat-icon>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="m-0 p-0" *ngIf="postIlist">
+    <div  class=" blanco  article border-bot"  *ngFor="let info of postIlist">
+      <div class="row align-items-center py-2  ">
+
+        <a [routerLink]="[info.linktitle]" class="tarjeta col-md-8 col-lg-8   pl-3 pr-0 mx-0">
+
+          <div class="row align-items-center mx-0 px-0   ">
+            <img alt="perfil" class="image-perfil ml-3" style="  width:45px; height:45px;"
+                 src="https://cdn.discordapp.com/avatars/{{info.updateModel.username}}/{{info.updateModel.avatar}}.png">
+
+            <div class="ml-3 ">
+              <h3 class="mt-0 mb-0 py-0"><strong>{{info.titlepost}}</strong></h3>
+              <span class="mt-1 mb-0 font-color-bot" style="font-size: 0.75em;">{{info.updateModel.indat}} por <strong
+                style="font-size: 1.2em;" class="color-{{loginService.getRole()}}">{{info.updateModel.name}}</strong></span>
+            </div>
+            <div class="py-4 br-1-c">l</div>
+          </div>
+        </a>
+
+        <div class="col-md-12  col-lg-2 ">
+          <div class=" ml-0 row align-items-center mr-0 center-button ">
+            <button class="button disabled row align-items-center p-2 pr-3" ><mat-icon class="mx-2">chat_bubble</mat-icon> Comentar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+<h2 mat-dialog-title>{{dataHTML.titleComponent}} post</h2>
+<div mat-dialog-content>
+  <mat-form-field class="col-12 col-sm-8 col-md-3 col-ld-4 col-xxl-3">
+    <input matInput placeholder="nombre del enlace titulo" [(ngModel)]="dataHTML.containerpost.linktitle">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="col-12 col-sm-8 col-md-3 col-ld-4 col-xxl-3">
+    <input matInput placeholder="nombre del titulo" [(ngModel)]="dataHTML.containerpost.title">
+  </mat-form-field>
+  <ckeditor (change)="onChange($event)" [data]=" dataHTML.containerpost.content"></ckeditor>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="dataHTML.containerpost" cdkFocusInitial>{{dataHTML.titleComponent}}</button>
+</div>

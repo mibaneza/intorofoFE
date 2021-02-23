@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{data.titleComponent}} categoria</h2>
+<div mat-dialog-content>
+  <mat-form-field class="col-12">
+    <input matInput placeholder="nombre del enlace titulo" [(ngModel)]="data.categoryI.linktitle">
+  </mat-form-field>
+
+  <mat-form-field class="col-12">
+    <input matInput placeholder="nombre del titulo" [(ngModel)]="data.categoryI.tilecategories">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="col-12">
+    <input matInput placeholder="descripción" [(ngModel)]="data.categoryI.description">
+  </mat-form-field>
+  <mat-form-field class="col-12">
+    <input matInput placeholder="enlace del icono" [(ngModel)]="data.categoryI.linklogo">
+  </mat-form-field>
+
+  <section class="col-12">
+    <mat-checkbox  [(ngModel)]="data.categoryI.est">publico</mat-checkbox>
+  </section>
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.categoryI" cdkFocusInitial>{{data.titleComponent}}</button>
+</div>
