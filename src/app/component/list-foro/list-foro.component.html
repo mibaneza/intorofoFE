@@ -26,9 +26,10 @@
             <h2 class="mt-0 mb-0 py-0"><strong>{{categoryI.tilecategories}}</strong></h2>
             <span class="mt-1 mb-0 font-color-bot">{{categoryI.description}}</span>
           </div>
-          <mat-icon>remove_circle</mat-icon>
-          <mat-icon>update</mat-icon>
-
+          <div *ngIf="loginService.getRoleVal()"  class="col">
+          <mat-icon (click)="eliminarCategory()" >remove_circle</mat-icon>
+          <mat-icon (click)="actualizarCategory()" >update</mat-icon>
+          </div>
         </div>
       </div>
 

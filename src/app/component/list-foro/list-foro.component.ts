@@ -11,6 +11,8 @@ import {CategoryDialogComponent} from '../dialog/category-dialog/category-dialog
 import {PostDialogComponent} from '../dialog/post-dialog/post-dialog.component';
 import {PostDialogI} from '../../model/post-dialog-i.interface';
 import {PostListI} from '../../model/post-list-i.interface';
+import {ConfirmationComponent} from '../dialog/confirmation/confirmation.component';
+import {CategoryDialogI} from '../../model/category-dialog-i.interface';
 
 @Component({
   selector: 'app-list-foro',
@@ -24,6 +26,7 @@ export class ListForoComponent implements OnInit {
   postDialog: PostDialogI;
   post: PostI;
   postL: PostListI;
+  categorylogI: CategoryDialogI;
 
   public postBool;
   constructor(
@@ -58,6 +61,10 @@ export class ListForoComponent implements OnInit {
       .subscribe(
         categoryData => {
           this.categoryI = categoryData;
+          this.categorylogI = {
+            titleComponent: 'Actualizar',
+            categoryI: this.categoryI
+          };
           console.log(categoryData);
           this.getPostlist(this.categoryI.idcategories);
         },
@@ -100,6 +107,58 @@ export class ListForoComponent implements OnInit {
           console.log(result);
         });
     }
+  }
+
+  actualizarCategory() {
+    if (this.categoryI) {
+      const dialogRef = this.dialog.open(CategoryDialogComponent, {
+        width: '95%',
+        data: this.categorylogI
+      });
+      dialogRef.afterClosed()
+        .subscribe(result => {
+          this.categoryI = result;
+          this.categoryService.updatecategory(result, result.idcategories)
+            .subscribe(
+              data => {
+                console.log(data);
+                this.categoryI = result;
+              },
+              error => {
+                console.log('ERROR ACTUALIZAR');
+                console.log(error as any);
+
+              }
+            );
+          console.log(result);
+        });
+
+    }
+  }
+
+  eliminarCategory() {
+    if (this.categoryI) {
+      const dialogRef = this.dialog.open(ConfirmationComponent, {
+        data: 'categoria'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.categoryService.deletecategory(this.categoryI.idcategories)
+            .subscribe(
+              data => {
+                console.log(data);
+              },
+              error => {
+                console.log('ERROR DELETE CATEGORIA');
+                console.log(error as any);
+              }
+            );
+        }
+        console.log(result);
+      });
+
+    }
+
   }
 
 }

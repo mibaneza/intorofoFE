@@ -13,7 +13,7 @@ import {authCodeFlowConfig} from '../../../authCodeFlowConfig.config';
   encapsulation: ViewEncapsulation.None
 })
 export class NavBarFeComponent implements OnInit, DoCheck {
-  public identify: Observable<UserI>;
+  public identify: UserI;
   rol: string;
   tokendiscord: string;
   userInfo: UserI;
@@ -48,7 +48,8 @@ export class NavBarFeComponent implements OnInit, DoCheck {
           this.userInfo = {
             avatar: data.username + '/' + data.avatar,
             name: data.name,
-            roles: this.validateRol(data.roles[0].name)
+            roles: this.validateRol(data.roles[0].name),
+            username: data.username
           };
           console.log(data.roles[0]);
           localStorage.setItem('userInfo', JSON.stringify(this.userInfo));

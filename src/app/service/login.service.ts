@@ -18,7 +18,7 @@ export class LoginService {
   getInfo(): Observable<any> {
     return this.https.get(this.url + 'security/userInfo')
   }
-  getUser(): Observable<UserI> {
+  getUser(): UserI {
     return this.userINFO = JSON.parse(localStorage.getItem( 'userInfo'));
   }
   getRoleVal(): boolean {

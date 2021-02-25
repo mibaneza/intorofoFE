@@ -7,6 +7,7 @@ import {PostService} from '../../service/post.service';
 import {UserService} from '../../service/user.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import {PostI} from '../../model/post.interface';
+import {LoginService} from '../../service/login.service';
 
 @Component({
   selector: 'app-content-foro',
@@ -24,6 +25,7 @@ export class ContentForoComponent implements OnInit {
   roleLocal: string;
   title: string;
   existForun: boolean;
+  validUser: boolean;
 
 
   postI: PostI;
@@ -32,8 +34,10 @@ export class ContentForoComponent implements OnInit {
     public dialog: MatDialog,
     private postService: PostService,
     private userService: UserService,
+    public loginService: LoginService,
     private rutaActiva: ActivatedRoute
   ) {
+    this.validUser = false;
     this.roleLocal = localStorage.getItem('accessRole');
 
     this.editorData = '';
@@ -52,13 +56,15 @@ export class ContentForoComponent implements OnInit {
       .subscribe(
         data => {
           this.postI = data;
+          if (this.loginService.getUser()) {
+          this.validUser = data.updateModel.username.valueOf() === this.loginService.getUser().username.valueOf();
+          }
           this.userService.getUserOne(data.updateModel.username)
             .subscribe(
               dataUser => {
                 this.containeruser = dataUser;
                 console.log(dataUser);
                 this.roles = dataUser.roles[0];
-
               },
               error => {
 
@@ -67,6 +73,9 @@ export class ContentForoComponent implements OnInit {
                 console.log(error as any);
 
               });
+          console.log( '---------------------------' );
+          console.log( 'post content' );
+          console.log(this.postI );
           console.log(data);
           this.existForun = true;
 
@@ -78,8 +87,6 @@ export class ContentForoComponent implements OnInit {
           console.log(error as any);
 
         });
-
-
   }
   actualizarPost() {
     if (this.postI) {
