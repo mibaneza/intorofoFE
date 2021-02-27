@@ -1,34 +1,36 @@
-<nav class="nav-foro mt-0 mx-0 pt-0 px-0">
-  <div class="container mt-0  pt-0 px-0">
-    <ul class=" row align-items-center  my-0">
-      <!--     <li class="mx-4 py-3 none-activo-nav-router"><a href=""><strong>Recientes </strong></a></li>-->
-      <li class="mx-4 py-3 activo-nav-router "><a href=""><strong>Categorias </strong></a></li>
-      <li *ngIf="loginService.getRoleVal()" (click)="createCategory()"><mat-icon>add_circle</mat-icon></li>
+<nav class="col nav-foro m-0 p-0">
+  <div class="container">
+    <ul class="row align-items-center pl-2  my-0">
+      <li class="mr-4 py-3 activo-nav-router ">
+        <a href=""><strong>Categorias </strong>
+        </a>
+      </li>
+      <li *ngIf="loginService.getRoleVal()" (click)="createCategory()">
+        <mat-icon>add_circle</mat-icon>
+      </li>
     </ul>
-
   </div>
-
 </nav>
+
 <div class="container mt-4 mb-0 pb-5 px-0">
 
-  <div class="b-radio blanco  article my-3" *ngFor="let category of categories">
-    <div class="row align-items-center py-2  ">
+  <div class="b-radio blanco  article my-3 py-3 px-0 mx-0 row align-items-center" *ngFor="let category of categories">
 
-      <a [routerLink]="[category.categoriesDomain.linktitle]" class="tarjeta col-md-7 col-lg-5 col-12  px-0 mx-0">
+      <a [routerLink]="[category.categoriesDomain.linktitle]"
+         class="tarjeta col-md-7 col-lg-5 col-10  px-0 mx-0">
         <div class="row align-items-center  mx-0  ">
           <img alt="perfil" class="image-perfils ml-4" style="  width:60px; height:60px;"
                src="{{category.categoriesDomain.linklogo}}">
-          <!--  <div class="border-radius padding-{{article.styleLogo}} border-background ml-4 ">
-               <strong >{{article.logo}}</strong>
-           </div>-->
           <div class="ml-0 ml-md-3 ml-lg-3 col-8 col-sm-9 col-md-9 col-lg-9">
             <h2 class="mt-0 mb-0 py-0"><strong>{{category.categoriesDomain.tilecategories}}</strong></h2>
             <span class="mt-1 mb-0 font-color-bot">{{category.categoriesDomain.description}}</span>
           </div>
         </div>
       </a>
-      <mat-icon *ngIf="loginService.getRoleVal()" (click)="deleteCategory(category)">remove_circle</mat-icon>
-      <a [routerLink]="[category.categoriesDomain.linktitle,category.postDomain.linktitle]" *ngIf="category.postDomain"class="tarjeta col-md-4 col-lg-4  d-none d-md-none d-lg-block px-0 mx-0">
+      <div class="m-0 p-0 col-1">
+        <mat-icon *ngIf="loginService.getRoleVal()" (click)="deleteCategory(category)">remove_circle</mat-icon>
+      </div>
+       <a [routerLink]="[category.categoriesDomain.linktitle,category.postDomain.linktitle]" *ngIf="category.postDomain"class="tarjeta col-md-4 col-lg-4  d-none d-md-none d-lg-block px-0 mx-0">
 
         <div class="row align-items-center mx-0 px-0  br-1 ">
           <img alt="perfil" class="image-perfil ml-3" style="  width:35px; height:35px;"
@@ -51,113 +53,7 @@
           <div class="py-4 br-1-c">l</div>
         </div>
       </div>
-    </div>
+
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!--
-      <div class="b-radio blanco  article my-3 ">
-          <div class="row align-items-center py-2 ">
-              <div class="br-1 row align-items-center col-6  mx-0 ">
-                  <div class="border-radius padding-inf border-background ml-3">
-                      <strong> INF</strong>
-                  </div>
-                  <div class="ml-3">
-                      <h2 class="mt-0 mb-0 py-0"><strong>Información</strong></h2>
-                      <span class="mt-1 mb-0 font-color-bot"> Reglas Generales, Policiales, medico</span>
-                  </div>
-                  <div class="py-4 br-1-c">l</div>
-              </div>
-
-              <div class="row align-items-center mx-0 px-0 col-4 br-1">
-                  <img alt="perfil" class="image-perfil ml-3" style="  width:35px; height:35px;"
-                      src="https://cdn.discordapp.com/avatars/466723213724876801/a_bd1a7a650de3af1ff2ff54cdf2426f80.gif">
-
-                  <div class="ml-3 ">
-                      <h3 class="mt-0 mb-0 py-0"><strong>Reglamento General</strong></h3>
-                      <span class="mt-1 mb-0 font-color-bot" style="font-size: 0.75em;">13/12/2020 por <strong
-                              style="font-size: 1.2em;" class="color-admin">! Lil Peluchin</strong></span>
-                  </div>
-                  <div class="py-4 br-1-c">l</div>
-              </div>
-              <div class="col-2 ml-0 row align-items-center mr-0 ">
-
-                  <mat-icon class="mx-2"> forum</mat-icon>
-                  <div>3 Posts</div>
-                  <div class="py-4 br-1-c">l</div>
-              </div>
-          </div>
-      </div>
-
-
-  -->
-
-
-
-
-
-
-
-
-
-
-  <!--
-
-
-      <div class="b-radio blanco  article my-3">
-          <div class="row align-items-center py-2  ">
-              <div class="br-1 row align-items-center col-6  mx-0 ">
-                  <div class="border-radius border-background ml-3 padding-bug">
-                      <strong>BUG</strong>
-                  </div>
-                  <div class="ml-3">
-                      <h2 class="mt-0 mb-0 py-0"><strong>Bugging Report</strong></h2>
-                      <span class="mt-1 mb-0 font-color-bot">bugs</span>
-                  </div>
-                  <div class="py-4 br-1-c">l</div>
-              </div>
-
-              <div class="row align-items-center mx-0 px-0 col-4 br-1">
-                  <img alt="perfil" class="image-perfil ml-3" style="  width:35px; height:35px;"
-                      src="https://cdn.discordapp.com/avatars/486290136267489300/ab1e6fdf6f6299f470a6c607019386aa.png">
-
-                  <div class="ml-3 ">
-                      <h3 class="mt-0 mb-0 py-0"><strong>Reglamento tallarin de docs</strong></h3>
-                      <span class="mt-1 mb-0 font-color-bot" style="font-size: 0.75em;">17/12/2020 por <strong
-                              style="font-size: 1.2em;" class="color-user">TorttugaCrush</strong></span>
-                  </div>
-                  <div class="py-4 br-1-c">l</div>
-              </div>
-              <div class="col-2 ml-0 row align-items-center mr-0 ">
-
-                  <mat-icon class="mx-2"> forum</mat-icon>
-                  <div>1 Posts</div>
-                  <div class="py-4 br-1-c">l</div>
-              </div>
-          </div>
-      </div>
-
-      -->
 
 </div>

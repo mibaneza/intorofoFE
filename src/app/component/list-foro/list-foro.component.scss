@@ -1,11 +1,13 @@
-
+article{
+  background-color: #16202d;
+}
 .button {
   background-color: #2a475e !important; /* Green */
   border: none;
   border-radius: 5%;
   color: #63bcef;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 14px !important;
 }
 .disabled {
   // opacity: 0.6;
@@ -37,4 +39,8 @@
 }
 .border-bot{
   border-bottom:1px solid #1B2838;
+}
+.matMenu-Style{
+  background-color: #2a475e;
+  color: rgba(240, 255, 255, 0.678)  !important;
 }
